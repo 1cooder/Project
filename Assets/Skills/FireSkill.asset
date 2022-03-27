@@ -15,7 +15,7 @@ MonoBehaviour:
   unlockLevel: 2
   skillUseTimeStep: 10
   damage: 10
-  range: 100
+  range: 10
   speed: 5
   skillSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   skillKey: 113
