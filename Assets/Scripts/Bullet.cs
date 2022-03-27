@@ -11,11 +11,12 @@ namespace Assets.Scripts
     {
         private GameObject bulletObject;
         private Vector2 startPoint;
-
-        public Bullet(GameObject bulletObject, Vector2 startPoint)
+        private Vector2 movingDirection;
+        public Bullet(GameObject bulletObject, Vector2 startPoint,Vector2 movingDirection)
         {
             this.bulletObject = bulletObject;
             this.startPoint = startPoint;
+            this.movingDirection = movingDirection;
         }
 
         public Vector2 GetStartPoint()
@@ -25,6 +26,10 @@ namespace Assets.Scripts
         public GameObject GetBulletObjet()
         {
             return bulletObject;
+        }
+        public Vector3 GetMovingDireciton() 
+        {
+            return movingDirection;
         }
     }
 }

@@ -73,6 +73,14 @@ public class CharacterController : MonoBehaviour
         rb.velocity = new Vector3(moveSpeed*Input.GetAxis("Horizontal")*Time.deltaTime*100f,rb.velocity.y);
     }
 
+    public Vector2 GetDirection()
+    {
+        if(rb.velocity.x>=0)
+            return transform.right;
+
+        return -transform.right;
+    }
+
     //void FlipFace()
     //{
     //    facingRight = !facingRight;

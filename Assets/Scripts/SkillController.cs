@@ -72,7 +72,6 @@ namespace Assets.Scripts
 
         public void SpawnBullet()
         {
-            Debug.Log("fİRED");
             if(_unlockLevel>CharacterController.Instance.GetLevel() && status != SkillStatus.Ready )
             {
                 return;
@@ -82,7 +81,7 @@ namespace Assets.Scripts
                 GameObject bulletObject=Instantiate(_skillObjectInstance,CharacterController.Instance.transform.position,CharacterController.Instance.transform.rotation);
                 bulletObject.transform.GetComponent<SpriteRenderer>().sprite = _sprite;
                 status = SkillStatus.Fired;
-                Bullet bullet = new Bullet(bulletObject,bulletObject.transform.position);
+                Bullet bullet = new Bullet(bulletObject,bulletObject.transform.position,CharacterController.Instance.GetDirection());
 
                 spawnedBullets.Add(bullet);
             }
@@ -93,7 +92,7 @@ namespace Assets.Scripts
             for (int i = 0; i < spawnedBullets.Count; i++)
             {
                 GameObject bulletObject = spawnedBullets[i].GetBulletObjet();
-                bulletObject.transform.position += speed * Time.deltaTime * bulletObject.transform.right;
+                bulletObject.transform.position += speed * Time.deltaTime * spawnedBullets[i].GetMovingDireciton();
                 if (Vector2.Distance(bulletObject.transform.position, spawnedBullets[i].GetStartPoint()) > range)
                 {
                     DestroyBullet(bulletObject.transform.position, bulletObject);
