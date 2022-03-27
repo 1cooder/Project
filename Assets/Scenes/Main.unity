@@ -1127,11 +1127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7205e0be7d44a9a4fb4df529c3d695c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jump_speed: 5
-  Move_speed: 5
+  jumpSpeed: 5
+  moveSpeedDown: 5
+  moveSpeedUp: 3
+  moveSpeed: 5
   isGrounded: 0
-  GroundPosition: {fileID: 1461040460}
-  GroundRadius: 0
+  GroundRadius: 0.5
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1186,7 +1187,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1439688, y: 1}
+    m_SensorSize: {x: 1.7760736, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

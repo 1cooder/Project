@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    private float distToGround;
-    public float Jump_speed = 3f;
-    public float Move_speed = 20f;
+    [SerializeField] float jumpSpeed = 3f;
+    [SerializeField] float moveSpeedDown = 5f;
+    [SerializeField] float moveSpeedUp = 3f;
+    [SerializeField] float moveSpeed;
     Rigidbody2D rb;
     bool facingRight = true;
-    public bool isGrounded = false;
+    [SerializeField] bool isGrounded = false;
 
-    public Transform GroundPosition;
-    public float GroundRadius;
-    public LayerMask GroundLayer;
+    [SerializeField] float GroundRadius = .5f;
+    [SerializeField] LayerMask GroundLayer;
 
     private void Awake()
     {
@@ -22,44 +22,34 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        OnGroundCheck();
-        if (isGrounded == false)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            Move_speed = 3;
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
         }
-        else
-        {
-            Move_speed = 5;    
-        }
-
-        // Jump
-        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Approximately(rb.velocity.y,0))
-        {
-            rb.AddForce(Vector3.up * Jump_speed, ForceMode2D.Impulse);
-
-        }
-        
-        
-        //if (rb.velocity.x < 0 && facingRight)
-        //{
-        //    FlipFace();
-        //}
-        //else if (rb.velocity.x > 0 && !facingRight)
-        //{
-        //    FlipFace();
-        //} 
     }
 
 
     private void FixedUpdate()
     {
+        OnGroundCheck();
+
+       // if (isGrounded)
+       //     moveSpeed = moveSpeedDown;
+       // else
+       //     moveSpeed = moveSpeedUp;
+
         HorizontalMove();
+
     }
 
     void HorizontalMove()
     {
         // Movement Horizontal Axis
-        rb.velocity = new Vector2(Move_speed * Input.GetAxis("Horizontal"), rb.velocity.y);
+        
+        //if (rb.velocity.x * Input.GetAxis("Horizontal") < 0)
+            //rb.velocity = Vector2.zero;
+        
+        rb.velocity = new Vector3(moveSpeed*Input.GetAxis("Horizontal")*Time.deltaTime*100f,rb.velocity.y);
     }
     void FlipFace()
     {
@@ -70,7 +60,7 @@ public class CharacterController : MonoBehaviour
     }
     void OnGroundCheck()
     {
-        isGrounded = Physics2D.OverlapCircle(GroundPosition.position, GroundRadius, GroundLayer);
+        isGrounded = Physics2D.OverlapCircle(transform.position, GroundRadius, GroundLayer);
     }
     
 }
