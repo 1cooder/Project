@@ -8,12 +8,17 @@ public class CharacterController : MonoBehaviour
     [SerializeField] float moveSpeedDown = 5f;
     [SerializeField] float moveSpeedUp = 3f;
     [SerializeField] float moveSpeed;
+    [SerializeField] float GroundRadius = .5f;
+
     Rigidbody2D rb;
-    bool facingRight = true;
+    //bool facingRight = true;
+    
     [SerializeField] bool isGrounded = false;
 
-    [SerializeField] float GroundRadius = .5f;
     [SerializeField] LayerMask GroundLayer;
+
+    private int level = 1;
+
 
     private void Awake()
     {
@@ -33,34 +38,40 @@ public class CharacterController : MonoBehaviour
     {
         OnGroundCheck();
 
-       // if (isGrounded)
-       //     moveSpeed = moveSpeedDown;
-       // else
-       //     moveSpeed = moveSpeedUp;
+        if (isGrounded)
+            moveSpeed = moveSpeedDown;
+        else
+            moveSpeed = moveSpeedUp;
 
         HorizontalMove();
 
     }
 
     void HorizontalMove()
-    {
-        // Movement Horizontal Axis
-        
-        //if (rb.velocity.x * Input.GetAxis("Horizontal") < 0)
-            //rb.velocity = Vector2.zero;
-        
+    {   
         rb.velocity = new Vector3(moveSpeed*Input.GetAxis("Horizontal")*Time.deltaTime*100f,rb.velocity.y);
     }
-    void FlipFace()
-    {
-        facingRight = !facingRight;
-        Vector3 transLocate = transform.localScale;
-        transLocate.x *= -1;
-        transform.localScale = transLocate;
-    }
+
+    //void FlipFace()
+    //{
+    //    facingRight = !facingRight;
+    //    Vector3 transLocate = transform.localScale;
+    //    transLocate.x *= -1;
+    //    transform.localScale = transLocate;
+    //}
+    
     void OnGroundCheck()
     {
         isGrounded = Physics2D.OverlapCircle(transform.position, GroundRadius, GroundLayer);
     }
     
+    public int GetLevel()
+    {
+        return level;
+    }
+    
+    public void LevelCompleted()
+    {
+        level++;
+    }
 }
