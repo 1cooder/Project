@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    private float distToGround;
     public float Jump_speed = 3f;
     public float Move_speed = 20f;
     Rigidbody2D rb;
     bool facingRight = true;
-    bool isGrounded = false;
+    public bool isGrounded = false;
 
     public Transform GroundPosition;
     public float GroundRadius;
@@ -22,18 +23,31 @@ public class CharacterController : MonoBehaviour
     private void Update()
     {
         OnGroundCheck();
-        if (rb.velocity.x < 0 && facingRight)
+        if (isGrounded == false)
         {
-            FlipFace();
+            Move_speed = 3;
         }
-        else if (rb.velocity.x > 0 && !facingRight)
+        else
         {
-            FlipFace();
+            Move_speed = 5;    
         }
-        if (Input.GetAxis("Vertical") > 0 && isGrounded)
+
+        // Jump
+        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Approximately(rb.velocity.y,0))
         {
-            Jump();
+            rb.AddForce(Vector3.up * Jump_speed, ForceMode2D.Impulse);
+
         }
+        
+        
+        //if (rb.velocity.x < 0 && facingRight)
+        //{
+        //    FlipFace();
+        //}
+        //else if (rb.velocity.x > 0 && !facingRight)
+        //{
+        //    FlipFace();
+        //} 
     }
 
 
@@ -44,9 +58,9 @@ public class CharacterController : MonoBehaviour
 
     void HorizontalMove()
     {
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Move_speed, rb.velocity.y);
+        // Movement Horizontal Axis
+        rb.velocity = new Vector2(Move_speed * Input.GetAxis("Horizontal"), rb.velocity.y);
     }
-
     void FlipFace()
     {
         facingRight = !facingRight;
@@ -54,14 +68,9 @@ public class CharacterController : MonoBehaviour
         transLocate.x *= -1;
         transform.localScale = transLocate;
     }
-
-    void Jump()
-    {
-        rb.AddForce(new Vector2(0f, Jump_speed));
-    }
-
     void OnGroundCheck()
     {
         isGrounded = Physics2D.OverlapCircle(GroundPosition.position, GroundRadius, GroundLayer);
     }
+    
 }
