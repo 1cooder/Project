@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Assets.Scripts;
 public class CharacterController : MonoBehaviour
 {
+    public static CharacterController Instance { get { return _instance; } }
+    private static CharacterController _instance;
+
     [SerializeField] float jumpSpeed = 3f;
     [SerializeField] float moveSpeedDown = 5f;
     [SerializeField] float moveSpeedUp = 3f;
     [SerializeField] float moveSpeed;
     [SerializeField] float GroundRadius = .5f;
-
+    [SerializeField] List<SkillController> skillInstances;
+    
+    List<SkillController> skills = new List<SkillController>(); 
+    
     Rigidbody2D rb;
-    //bool facingRight = true;
     
     [SerializeField] bool isGrounded = false;
 
@@ -19,10 +24,25 @@ public class CharacterController : MonoBehaviour
 
     private int level = 1;
 
-
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            _instance = this;
+        }
+        //DontDestroyOnLoad(this.gameObject);
+        
         rb = GetComponent<Rigidbody2D>();
+
+        for(int i = 0; i < skillInstances.Count; i++)
+        {
+            skills.Add(Instantiate(skillInstances[i], transform));
+        }
     }
 
     private void Update()
@@ -31,6 +51,7 @@ public class CharacterController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
         }
+        SkillInputController();
     }
 
 
@@ -73,5 +94,16 @@ public class CharacterController : MonoBehaviour
     public void LevelCompleted()
     {
         level++;
+    }
+    private void SkillInputController()
+    {
+        for(int i = 0; i < skills.Count; i++)
+        {
+            if (Input.GetKeyDown(skills[i].GetSkillKey()))
+            {
+                skills[i].SpawnBullet();
+            }
+
+        }
     }
 }

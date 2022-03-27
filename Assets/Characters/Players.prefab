@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7811064300378077012}
   - component: {fileID: 890767856653963254}
   - component: {fileID: 3041321156753591252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SquareCHAR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,8 +182,11 @@ MonoBehaviour:
   moveSpeedDown: 5
   moveSpeedUp: 3
   moveSpeed: 5
-  isGrounded: 0
   GroundRadius: 0.5
+  skillInstances:
+  - {fileID: 1322958050854667825, guid: c3463b2f3e09ec34ba2f5f074eca692f, type: 3}
+  - {fileID: 2377035149556900412, guid: 33788dfd0e550d44b8b48669a7c59f21, type: 3}
+  isGrounded: 0
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
