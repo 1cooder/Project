@@ -208,6 +208,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.07, y: -3.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1868937553179653931}
   - {fileID: 8463544117780678221}
@@ -322,7 +323,6 @@ GameObject:
   - component: {fileID: 7906595350621711699}
   - component: {fileID: 7134373807163137392}
   - component: {fileID: 7790974926307356845}
-  - component: {fileID: 4318345852353001395}
   m_Layer: 0
   m_Name: EnemyA
   m_TagString: Untagged
