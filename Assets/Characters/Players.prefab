@@ -655,12 +655,12 @@ MonoBehaviour:
   _moveSpeedDown: 5
   _moveSpeedUp: 3
   _moveSpeed: 0
-  _groundRadius: 0.5
+  _groundRadius: 2
   _skillInstances: []
   isGrounded: 0
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!95 &4014715188207934603
 Animator:
   serializedVersion: 3

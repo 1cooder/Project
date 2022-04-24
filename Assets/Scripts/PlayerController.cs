@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask GroundLayer;
 
     private int level = 1;
+    private float _direction = 0f;
 
     private void Awake()
     {
@@ -61,12 +62,15 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
         }
         SkillInputController();
+        _direction = Input.GetAxisRaw("Horizontal");
+
         TurnAround();
     }
 
 
     private void FixedUpdate()
     {
+
         OnGroundCheck();
 
         if (isGrounded)
@@ -80,22 +84,26 @@ public class PlayerController : MonoBehaviour
 
     private void TurnAround()
     {
-        float direction = Input.GetAxis("Horizontal");
-        if (direction>0 && transform.localEulerAngles.y != 0f)
+        if (_direction>0 && transform.localEulerAngles.y != 0f)
         {
             transform.localEulerAngles = new Vector3(0f,0f,0f);
-            Debug.Log("check1");
         }
-        if (direction < 0 && transform.localEulerAngles.y == 0f)
+        if (_direction < 0 && transform.localEulerAngles.y == 0f)
         {
             transform.localEulerAngles = new Vector3(0f, -180f, 0f);
-            Debug.Log("check2");
         }
     }
 
     void HorizontalMove()
     {
-        rb.velocity = new Vector3(_moveSpeed*transform.right.x*Time.deltaTime*100f,rb.velocity.y);
+        if (_direction != 0f)
+        {
+            rb.velocity = new Vector2(_moveSpeed * transform.right.x * Time.deltaTime * 100f, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0f,rb.velocity.y);
+        }
     }
 
     public Vector2 GetDirection()
