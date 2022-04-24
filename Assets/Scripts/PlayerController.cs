@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.layer & 1 << _enemyLayer) !=0)
+        if ((_enemyLayer & (1 << collision.gameObject.layer)) !=0)
         {
             rb.AddForce(-transform.right*_enemyHitForce);
             StartCoroutine(BackToNormal());
