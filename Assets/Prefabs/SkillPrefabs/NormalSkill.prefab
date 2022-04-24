@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: _skillObjectInstance
       value: 
       objectReference: {fileID: 3767037160512155197, guid: ef65f61c306e5b14eadcf44fc13a40e3, type: 3}
+    - target: {fileID: -6224882974415227457, guid: 4cac49e89755ec2448735ab628824e43, type: 3}
+      propertyPath: _skillScriptableObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f5d0f76618af66f45ba0ac61ecdc4e8f, type: 2}
     - target: {fileID: 2751823603218706858, guid: 4cac49e89755ec2448735ab628824e43, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -81,7 +81,7 @@ namespace Assets.Scripts
             }
             else
             {
-                GameObject bulletObject=Instantiate(_skillObjectInstance,PlayerController.Instance.transform.position,PlayerController.Instance.transform.rotation);
+                GameObject bulletObject=Instantiate(_skillObjectInstance,PlayerController.Instance.GetSkillSpawnPosition(),PlayerController.Instance.transform.rotation);
                 bulletObject.transform.GetComponent<SpriteRenderer>().sprite = _sprite;
                 _status = SkillStatus.Fired;
                 Bullet bullet = new Bullet(bulletObject,bulletObject.transform.position,PlayerController.Instance.GetDirection());

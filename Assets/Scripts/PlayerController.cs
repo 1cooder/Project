@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private float _moveSpeed;
     [SerializeField] 
     private float _groundRadius = .5f;
+
+    [SerializeField]
+    Transform _skillSpawnPosition;
     
     [SerializeField] List<SkillController> _skillInstances;
     
@@ -126,6 +129,12 @@ public class PlayerController : MonoBehaviour
     {
         level++;
     }
+
+    public Vector3 GetSkillSpawnPosition()
+    {
+        return _skillSpawnPosition.position;
+    }
+
     private void SkillInputController()
     {
         for(int i = 0; i < _skills.Count; i++)
