@@ -33,9 +33,10 @@ public class PlayerController : MonoBehaviour
     bool _isGrounded = false;
 
     [SerializeField] 
-    LayerMask GroundLayer;
+    private LayerMask _groundLayer;
     [SerializeField] 
-    LayerMask EnemyLayer;
+    private LayerMask _enemyLayer;
+
 
     private int level = 1;
     private float _direction = 0f;
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
     
     void OnGroundCheck()
     {
-        _isGrounded = Physics2D.OverlapCircle(transform.position, _groundRadius, GroundLayer);
+        _isGrounded = Physics2D.OverlapCircle(transform.position, _groundRadius, _groundLayer);
     }
     
     public int GetLevel()
@@ -152,9 +153,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.layer & 1 << EnemyLayer) !=0)
+        if ((collision.gameObject.layer & 1 << _enemyLayer) !=0)
         {
+            Debug.Log("Burdayim");
             rb.AddForce(-transform.right*_enemyHitForce);
+            gameObject.layer = LayerMask.NameToLayer("SafeLayer");
+            StartCoroutine(BackToNormal());
         }
     }
+    IEnumerator BackToNormal()
+    {
+        yield return new WaitForSeconds(1f);
+        gameObject.layer = LayerMask.NameToLayer("Player");
+    }
+
+
+
 }
