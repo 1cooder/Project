@@ -26,7 +26,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.07, y: -3.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1868937553179653931}
   m_Father: {fileID: 0}
@@ -46,7 +45,7 @@ GameObject:
   - component: {fileID: 4177108122926820016}
   - component: {fileID: 1990036369}
   m_Layer: 8
-  m_Name: SquareCHAR
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +61,6 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.04, y: -0.31, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 460104822384988936}
   m_RootOrder: 0
@@ -78,7 +76,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -128,7 +125,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8616420397080440563}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b5e9450edeebe9d43bcf40a96dc96453, type: 2}
+  m_Material: {fileID: 6200000, guid: fe6a72c6bfe8e944389b0a88993c8daa, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -157,11 +154,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: b5e9450edeebe9d43bcf40a96dc96453, type: 2}
+  m_Material: {fileID: 6200000, guid: fe6a72c6bfe8e944389b0a88993c8daa, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -178,4 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a444c716db4aab4ab32ffcaa258f330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: {fileID: 11400000, guid: a76930788ef4c7941b451018fd57775f, type: 2}
+  _enemyType: {fileID: 11400000, guid: a76930788ef4c7941b451018fd57775f, type: 2}
