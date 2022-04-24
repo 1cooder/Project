@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private float _groundRadius = .5f;
     [SerializeField]
     private float _enemyHitForce = 5f;
+    [SerializeField]
+    private float _delayAfterGotHit = 2f;
 
     [SerializeField]
     Transform _skillSpawnPosition;
@@ -77,7 +79,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         OnGroundCheck();
 
         if (_isGrounded)
@@ -155,18 +156,21 @@ public class PlayerController : MonoBehaviour
     {
         if ((collision.gameObject.layer & 1 << _enemyLayer) !=0)
         {
-            Debug.Log("Burdayim");
             rb.AddForce(-transform.right*_enemyHitForce);
-            gameObject.layer = LayerMask.NameToLayer("SafeLayer");
             StartCoroutine(BackToNormal());
         }
     }
     IEnumerator BackToNormal()
     {
-        yield return new WaitForSeconds(1f);
+        gameObject.layer = LayerMask.NameToLayer("SafeLayer");
+        yield return new WaitForSeconds(_delayAfterGotHit);
         gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
-
+    public enum PlayerStatus
+    {
+        Idle,
+        GotHit,
+    }
 
 }
