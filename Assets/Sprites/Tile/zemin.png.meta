@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,12 +32,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -78,9 +77,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -2057,99 +2056,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      zemin_45: 515312270
-      zemin_23: -460349641
-      zemin_16: -91102694
-      zemin_41: 1535651507
-      zemin_73: -973155700
-      zemin_15: 1698369259
-      zemin_6: -817682730
-      zemin_18: 433117789
-      zemin_9: 1112946918
-      zemin_60: -2123760717
-      zemin_17: -1428552190
-      zemin_35: -1951483790
-      zemin_83: 95820989
-      zemin_29: -124317567
-      zemin_52: 1760173886
-      zemin_4: -358773699
-      zemin_53: 1166519037
-      zemin_31: 1102236442
-      zemin_40: 879662892
-      zemin_2: 799616237
-      zemin_33: 546407713
-      zemin_26: 1637986939
-      zemin_38: -910098118
-      zemin_58: 531923711
-      zemin_56: -437061765
-      zemin_43: -186867590
-      zemin_86: -102125670
-      zemin_54: -920011338
-      zemin_63: 418850569
-      zemin_51: 819851973
-      zemin_89: -12323622
-      zemin_70: -616150679
-      zemin_49: -2129095495
-      zemin_65: 52304919
-      zemin_67: -1404235888
-      zemin_84: 723106935
-      zemin_75: -377544213
-      zemin_8: 739168921
-      zemin_50: -1783295272
-      zemin_91: -1483399081
-      zemin_39: -179007898
-      zemin_64: 1145078006
-      zemin_1: -795448875
-      zemin_44: 296316701
-      zemin_30: -461809173
-      zemin_55: -565703412
-      zemin_78: 609932712
-      zemin_90: 1090675852
-      zemin_88: -1309868102
-      zemin_32: 1926756277
-      zemin_74: -1846021504
-      zemin_3: 677579325
-      zemin_36: -595420776
-      zemin_22: 1406701125
-      zemin_21: 1328621733
-      zemin_69: -1338993134
-      zemin_7: 873889798
-      zemin_72: -1331540868
-      zemin_82: 1261383081
-      zemin_61: 492650015
-      zemin_81: 1869572940
-      zemin_85: -1232092945
-      zemin_34: 258183407
-      zemin_11: 712365814
-      zemin_62: -1495665783
-      zemin_10: 767512812
-      zemin_24: -1319850821
-      zemin_37: -1148497220
-      zemin_79: -335408905
-      zemin_13: -2048964431
-      zemin_42: 1922273975
-      zemin_68: -1801925360
-      zemin_59: 2041871738
-      zemin_71: 1305821367
-      zemin_66: -2006404864
-      zemin_57: 1202208241
-      zemin_12: -1024358431
-      zemin_76: 630843680
-      zemin_77: -1714091130
-      zemin_14: 1925071356
-      zemin_47: 1895535355
-      zemin_80: 1889171833
-      zemin_20: 932692252
-      zemin_25: -143629903
-      zemin_46: -1586015953
-      zemin_19: 1704570006
-      zemin_28: 1806488873
-      zemin_48: 997678678
-      zemin_0: -729133862
-      zemin_27: -91831024
-      zemin_5: 642570456
-      zemin_87: -1028528970
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

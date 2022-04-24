@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -45,8 +44,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.28710938, y: 0.41992188}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -78,9 +77,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -119,176 +118,100 @@ TextureImporter:
     physicsShape: []
     bones:
     - name: R-Up-LEG
-      guid: a12a076fb5fa05f40ad7fc6d6094d2b5
       position: {x: 60.53463, y: -45.70982, z: 0}
       rotation: {x: 0, y: 0, z: -0.1258541, w: 0.9920488}
       length: 128.63231
       parentId: 6
-      color:
-        serializedVersion: 2
-        rgba: 4278190335
     - name: R-Down-LEG
-      guid: d9c98f5e06b1a0f4392bea618fa3e71c
       position: {x: 128.63232, y: 0.0000037122472, z: 0}
       rotation: {x: 0, y: 0, z: 0.07775429, w: 0.99697256}
       length: 195.67143
       parentId: 0
-      color:
-        serializedVersion: 2
-        rgba: 4278255615
     - name: R-Foot
-      guid: 851570dcfce365247a4ab3e803c02a07
       position: {x: 195.67143, y: -0.000014979143, z: 0}
       rotation: {x: 0, y: 0, z: 0.541779, w: 0.840521}
       length: 58.111446
       parentId: 1
-      color:
-        serializedVersion: 2
-        rgba: 4278255360
     - name: L-Up-LEG
-      guid: fdcdd5403d1c1b64ea846d0bc769735c
       position: {x: 73.39723, y: 151.88153, z: -1}
       rotation: {x: 0, y: 0, z: 0.067177504, w: 0.99774104}
       length: 116.01193
       parentId: 6
-      color:
-        serializedVersion: 2
-        rgba: 4294967040
     - name: L-Down-LEG
-      guid: d2e954c23b60f6144b8d55bdcaa9bae3
       position: {x: 116.01194, y: -0.000012340445, z: -1}
       rotation: {x: 0, y: 0, z: -0.14241587, w: 0.98980695}
       length: 174.00035
       parentId: 3
-      color:
-        serializedVersion: 2
-        rgba: 4294901760
     - name: L-Foot
-      guid: 43016f875e2bfef429b2fbbecab8268d
       position: {x: 174.00035, y: -0.000014090119, z: -1}
       rotation: {x: 0, y: 0, z: 0.53137124, w: 0.84713906}
       length: 83.83332
       parentId: 4
-      color:
-        serializedVersion: 2
-        rgba: 4294902015
     - name: Body-DOWN
-      guid: 7d67286452939634e96958fbe1c4c2ea
       position: {x: 495.01416, y: 45.788765, z: 0}
       rotation: {x: 0, y: 0, z: -0.9995686, w: 0.029373532}
       length: 63.223415
       parentId: 18
-      color:
-        serializedVersion: 2
-        rgba: 4278223103
     - name: Body-UP
-      guid: 5ad3a5c61146f16419123cc2e111202c
       position: {x: 517.2898, y: 49.501377, z: 0}
       rotation: {x: 0, y: 0, z: 0.15664747, w: 0.9876546}
       length: 163.97696
       parentId: 18
-      color:
-        serializedVersion: 2
-        rgba: 4278255488
     - name: Head
-      guid: 8c466b8ff970a8446b46087dcf699655
       position: {x: 163.97696, y: -0.000007602095, z: 0}
       rotation: {x: 0, y: 0, z: -0.27148765, w: 0.9624419}
       length: 185.79936
       parentId: 7
-      color:
-        serializedVersion: 2
-        rgba: 4286643968
     - name: R-Up-ARM
-      guid: 5cb2c08594b1a664e9bb4e63bfa1354d
       position: {x: 146.58644, y: 78.5375, z: 2}
       rotation: {x: 0, y: -0, z: 0.9758916, w: 0.2182559}
       length: 138.45479
       parentId: 7
-      color:
-        serializedVersion: 2
-        rgba: 4294934528
     - name: R-Down-ARM
-      guid: 5c5ed58a1a3cbee4793a4dd15f09efe3
       position: {x: 138.45477, y: -0.000040244315, z: 2}
       rotation: {x: 0, y: 0, z: 0.089758135, w: 0.99596363}
       length: 114.02129
       parentId: 9
-      color:
-        serializedVersion: 2
-        rgba: 4294901888
     - name: R-Hand
-      guid: 8f378ff2882835b469528063fcb2813c
       position: {x: 114.0213, y: -0.000043633343, z: 2}
       rotation: {x: 0, y: 0, z: -0.14802907, w: -0.9889831}
       length: 39.543053
       parentId: 10
-      color:
-        serializedVersion: 2
-        rgba: 4286578943
     - name: L-Up-ARM
-      guid: f3bbd33302371244fabe23d5534bd727
       position: {x: -206.4165, y: -358.39206, z: -2}
       rotation: {x: 0, y: -0, z: 0.996224, w: 0.08682091}
       length: 149.98709
       parentId: 7
-      color:
-        serializedVersion: 2
-        rgba: 4278255615
     - name: L-Down-ARM
-      guid: 8fa789ade37e20e4e9875683a7a011da
       position: {x: 149.98708, y: 0.000024437555, z: -2}
       rotation: {x: 0, y: 0, z: -0.12081915, w: 0.9926745}
       length: 134.34523
       parentId: 12
-      color:
-        serializedVersion: 2
-        rgba: 4278255360
     - name: L-Hand
-      guid: 2914428507b7f4d42965152fc6f8892d
       position: {x: 134.3452, y: -0.00007625324, z: -2}
       rotation: {x: 0, y: 0, z: 0.08659703, w: -0.9962435}
       length: 50.146954
       parentId: 13
-      color:
-        serializedVersion: 2
-        rgba: 4294967040
     - name: Staff
-      guid: 3ff06466ad1c1cb4da947eb0a9cdbec2
       position: {x: 559.36597, y: -530.9027, z: -2}
       rotation: {x: 0, y: 0, z: -0.9999989, w: -0.0015059913}
       length: 410.86365
       parentId: 18
-      color:
-        serializedVersion: 2
-        rgba: 4294901760
     - name: BackpackA
-      guid: 1237c79b739d89949af23f20e0d32152
       position: {x: 917.0137, y: -246.26962, z: -3}
       rotation: {x: 0, y: 0, z: -0.99966455, w: -0.025899826}
       length: 334.58344
       parentId: 18
-      color:
-        serializedVersion: 2
-        rgba: 4294902015
     - name: BackpackB
-      guid: 14ecc8c85f8d95342b211869d5832055
       position: {x: 900.9257, y: -348.98508, z: 1}
       rotation: {x: 0, y: 0, z: -0.99728113, w: 0.073690645}
       length: 311.52972
       parentId: 18
-      color:
-        serializedVersion: 2
-        rgba: 4278190335
     - name: Root
-      guid: bcada9a4892fe19458cce5a328f867aa
       position: {x: 366.93393, y: 15.053669, z: 0}
       rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
       length: 68.064445
       parentId: -1
-      color:
-        serializedVersion: 2
-        rgba: 4278255488
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
     vertices:
@@ -4449,7 +4372,6 @@ TextureImporter:
       boneIndex[2]: 0
       boneIndex[3]: 0
     secondaryTextures: []
-    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
