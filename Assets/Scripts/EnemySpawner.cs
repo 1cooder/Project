@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int EnemyQuantity = 0;
     [SerializeField] private float range = 2;
     
-
     private Vector3 SpawnPosition;
 
     private void Awake()

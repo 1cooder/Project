@@ -10,27 +10,30 @@ namespace Assets.Scripts
 {
     class SkillController: MonoBehaviour
     {
-
-        [SerializeField] SkillScriptableObject skillScriptableObject;
+        [SerializeField] 
+        SkillScriptableObject _skillScriptableObject;
         
-        SkillStatus status;
+        private SkillStatus _status;
         
-        KeyCode skillKey;
+        private KeyCode _skillKey;
         
-        int _unlockLevel;
+        private int _unlockLevel;
+       
+        private float _skillUseTimeStep;
+        private float _damage;
+        private float _range;
+        private float _speed;
         
-        float skillUseTimeStep;
-        float damage;
-        float range;
-        float speed;
-
-        Sprite _sprite;
+        private Sprite _sprite;
         
-        [SerializeField] GameObject _effectObjectInstance;
-        [SerializeField] GameObject _skillObjectInstance;
-        string _skillName;
+        [SerializeField] 
+        GameObject _effectObjectInstance;
+        [SerializeField] 
+        GameObject _skillObjectInstance;
         
-        float waitTime = 0f;
+        private string _skillName;
+        
+        private float _waitTime = 0f;
 
         List<Bullet> spawnedBullets= new List<Bullet>();
         private void Awake()
@@ -39,40 +42,40 @@ namespace Assets.Scripts
         }
         private void Update()
         {
-            if (status == SkillStatus.Charging)
+            if (_status == SkillStatus.Charging)
             {
-                waitTime += Time.deltaTime;
+                _waitTime += Time.deltaTime;
             }
 
-            if(waitTime>skillUseTimeStep)
+            if(_waitTime>_skillUseTimeStep)
             {
-                status = SkillStatus.Ready;
+                _status = SkillStatus.Ready;
             }
 
-            if (status == SkillStatus.Fired)
+            if (_status == SkillStatus.Fired)
             {
-                status = SkillStatus.Charging;
+                _status = SkillStatus.Charging;
             }
             MoveBullets();
         }
         
         public void InitSkillFromScriptableObject() 
         {
-            _unlockLevel = skillScriptableObject.unlockLevel;
-            _sprite = skillScriptableObject.skillSprite;
-            _skillName = skillScriptableObject.skillName;
+            _unlockLevel = _skillScriptableObject.unlockLevel;
+            _sprite = _skillScriptableObject.skillSprite;
+            _skillName = _skillScriptableObject.skillName;
 
-            skillUseTimeStep = skillScriptableObject.skillUseTimeStep;
-            damage = skillScriptableObject.damage;
-            range = skillScriptableObject.range;
-            speed = skillScriptableObject.speed;
-            skillKey = skillScriptableObject.skillKey;
-            status = SkillStatus.Ready;
+            _skillUseTimeStep = _skillScriptableObject.skillUseTimeStep;
+            _damage = _skillScriptableObject.damage;
+            _range = _skillScriptableObject.range;
+            _speed = _skillScriptableObject.speed;
+            _skillKey = _skillScriptableObject.skillKey;
+            _status = SkillStatus.Ready;
         }
 
         public void SpawnBullet()
         {
-            if(_unlockLevel>PlayerController.Instance.GetLevel() && status != SkillStatus.Ready )
+            if(_unlockLevel>PlayerController.Instance.GetLevel() && _status != SkillStatus.Ready )
             {
                 return;
             }
@@ -80,7 +83,7 @@ namespace Assets.Scripts
             {
                 GameObject bulletObject=Instantiate(_skillObjectInstance,PlayerController.Instance.transform.position,PlayerController.Instance.transform.rotation);
                 bulletObject.transform.GetComponent<SpriteRenderer>().sprite = _sprite;
-                status = SkillStatus.Fired;
+                _status = SkillStatus.Fired;
                 Bullet bullet = new Bullet(bulletObject,bulletObject.transform.position,PlayerController.Instance.GetDirection());
 
                 spawnedBullets.Add(bullet);
@@ -92,8 +95,8 @@ namespace Assets.Scripts
             for (int i = 0; i < spawnedBullets.Count; i++)
             {
                 GameObject bulletObject = spawnedBullets[i].GetBulletObjet();
-                bulletObject.transform.position += speed * Time.deltaTime * spawnedBullets[i].GetMovingDireciton();
-                if (Vector2.Distance(bulletObject.transform.position, spawnedBullets[i].GetStartPoint()) > range)
+                bulletObject.transform.position += _speed * Time.deltaTime * spawnedBullets[i].GetMovingDireciton();
+                if (Vector2.Distance(bulletObject.transform.position, spawnedBullets[i].GetStartPoint()) > _range)
                 {
                     DestroyBullet(bulletObject.transform.position, bulletObject);
                 }
@@ -113,11 +116,11 @@ namespace Assets.Scripts
 
         public void SetSkillKey(KeyCode key)
         {
-            skillKey = key;
+            _skillKey = key;
         }
         public KeyCode GetSkillKey()
         {
-            return skillKey;
+            return _skillKey;
         }
     }
 }
