@@ -10,8 +10,10 @@ namespace Assets.Scripts
     public class Bullet
     {
         private GameObject bulletObject;
+        
         private Vector2 startPoint;
         private Vector2 movingDirection;
+
         public Bullet(GameObject bulletObject, Vector2 startPoint,Vector2 movingDirection)
         {
             this.bulletObject = bulletObject;

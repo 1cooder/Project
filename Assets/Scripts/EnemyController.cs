@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     //Getting scriptable object
     [SerializeField] 
-    private EnemyType _enemyType = null;
+    private EnemyData _enemyType = null;
 
     //Getting Enemy Values
     Sprite _sprite;
@@ -15,10 +15,13 @@ public class EnemyController : MonoBehaviour
 
     Vector2 _enemyScale;
 
+    Vector3 _startPosition = Vector3.zero;
+
     private float _speed;
     private float _maxHealth;
     private float _health;
     private float _damage;
+    private float _moveRadius;
 
     string _enemyName;
 
@@ -28,29 +31,34 @@ public class EnemyController : MonoBehaviour
         InitEnemyFromScriptableObject();
         _health = _maxHealth;
         Debug.Log(_health);
+        _startPosition = transform.position;
     }
 
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = _sprite;
         transform.localScale = _enemyScale;
-
     }
 
+    private void Update()
+    {
+        Move();
+    }
 
     //Getting Enemy values from scriptable object
     public void InitEnemyFromScriptableObject()
     {
 
-        _sprite = _enemyType.enemySprite;
-        _enemyName = _enemyType.enemyName;
+        _sprite = _enemyType.EnemySprite;
+        _enemyName = _enemyType.EnemyName;
 
-        _enemyScale = _enemyType.enemyScale;
-        _speed = _enemyType.enemySpeed;
-        _maxHealth = _enemyType.enemyMaxHealt;
-        _damage = _enemyType.enemyDamage;
+        _enemyScale = _enemyType.EnemyScale;
+        _speed = _enemyType.EnemySpeed;
+        _maxHealth = _enemyType.EnemyMaxHealth;
+        _damage = _enemyType.EnemyDamage;
+        _moveRadius = _enemyType.EnemyMoveRadius;
 
-        _damagedSprite = _enemyType.damagedEnemySprites;
+        _damagedSprite = _enemyType.DamagedEnemySprites;
 
     }
 
@@ -93,5 +101,15 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
+    private void Move()
+    {
+        transform.position += _speed * Time.deltaTime * transform.right;
+        if (Vector3.Distance(_startPosition, transform.position)>_moveRadius)
+        {
+            transform.Rotate(Vector3.up,180f);
+        }
+    }
+
 
 }
