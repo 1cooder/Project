@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     //Getting scriptable object
     [SerializeField] 
-    private EnemyType enemyType = null;
+    private EnemyType _enemyType = null;
 
     //Getting Enemy Values
     Sprite _sprite;
-    Sprite[] damagedSprites;
+    Sprite[] _damagedSprite;
 
-    Vector2 enemyScale;
+    Vector2 _enemyScale;
 
-    float speed;
-    float maxHealt;
-    float health;
-    float damage;
+    private float _speed;
+    private float _maxHealth;
+    private float _health;
+    private float _damage;
 
     string _enemyName;
 
@@ -26,14 +26,14 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         InitEnemyFromScriptableObject();
-        health = maxHealt;
-        Debug.Log(health);
+        _health = _maxHealth;
+        Debug.Log(_health);
     }
 
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = _sprite;
-        transform.localScale = enemyScale;
+        transform.localScale = _enemyScale;
 
     }
 
@@ -42,15 +42,15 @@ public class Enemy : MonoBehaviour
     public void InitEnemyFromScriptableObject()
     {
 
-        _sprite = enemyType.enemySprite;
-        _enemyName = enemyType.enemyName;
+        _sprite = _enemyType.enemySprite;
+        _enemyName = _enemyType.enemyName;
 
-        enemyScale = enemyType.enemyScale;
-        speed = enemyType.enemySpeed;
-        maxHealt = enemyType.enemyMaxHealt;
-        damage = enemyType.enemyDamage;
+        _enemyScale = _enemyType.enemyScale;
+        _speed = _enemyType.enemySpeed;
+        _maxHealth = _enemyType.enemyMaxHealt;
+        _damage = _enemyType.enemyDamage;
 
-        damagedSprites = enemyType.damagedEnemySprites;
+        _damagedSprite = _enemyType.damagedEnemySprites;
 
     }
 
@@ -58,10 +58,10 @@ public class Enemy : MonoBehaviour
     public void TakeHit(float hit)
     {
 
-        health -= hit;
+        _health -= hit;
         ChangeSpriteOnDamage();
         DestroyEnemy();
-        Debug.Log(health);
+        Debug.Log(_health);
         Debug.Log(GetComponent<SpriteRenderer>().sprite);
 
     }
@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
     public void DestroyEnemy()
     {
 
-        if(health <= 0)
+        if(_health <= 0)
         {
             Destroy(this.gameObject);
             Debug.Log("enemy died");
@@ -80,15 +80,15 @@ public class Enemy : MonoBehaviour
     //enemy takes damage, the sprite changes compared to maxhealth
     public void ChangeSpriteOnDamage()
     {
-        int a = damagedSprites.Length;
+        int a = _damagedSprite.Length;
 
         if(a > 0)
         {
             for(int i = 0; i < a; i++)
             {
-                if(health <= maxHealt / (a + 1) * (a - i))
+                if(_health <= _maxHealth / (a + 1) * (a - i))
                 {
-                    GetComponent<SpriteRenderer>().sprite =  damagedSprites[i];
+                    GetComponent<SpriteRenderer>().sprite =  _damagedSprite[i];
                 }
             }
         }

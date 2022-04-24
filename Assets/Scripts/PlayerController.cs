@@ -8,21 +8,21 @@ public class PlayerController : MonoBehaviour
     private static PlayerController _instance;
 
     [SerializeField] 
-    float jumpSpeed = 3f;
+    private float jumpSpeed = 3f;
     
     [SerializeField] 
-    float moveSpeedDown = 5f;
+    float _moveSpeedDown = 5f;
     
     [SerializeField] 
-    float moveSpeedUp = 3f;
+    private float _moveSpeedUp = 3f;
     [SerializeField] 
-    float moveSpeed;
+    private float _moveSpeed;
     [SerializeField] 
-    float GroundRadius = .5f;
+    private float _groundRadius = .5f;
     
-    [SerializeField] List<SkillController> skillInstances;
+    [SerializeField] List<SkillController> _skillInstances;
     
-    List<SkillController> skills = new List<SkillController>(); 
+    List<SkillController> _skills = new List<SkillController>(); 
     
     Rigidbody2D rb;
     
@@ -48,9 +48,9 @@ public class PlayerController : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
 
-        for(int i = 0; i < skillInstances.Count; i++)
+        for(int i = 0; i < _skillInstances.Count; i++)
         {
-            skills.Add(Instantiate(skillInstances[i], transform));
+            _skills.Add(Instantiate(_skillInstances[i], transform));
         }
     }
 
@@ -70,9 +70,9 @@ public class PlayerController : MonoBehaviour
         OnGroundCheck();
 
         if (isGrounded)
-            moveSpeed = moveSpeedDown;
+            _moveSpeed = _moveSpeedDown;
         else
-            moveSpeed = moveSpeedUp;
+            _moveSpeed = _moveSpeedUp;
 
         HorizontalMove();
 
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     void HorizontalMove()
     {
-        rb.velocity = new Vector3(moveSpeed*transform.right.x*Time.deltaTime*100f,rb.velocity.y);
+        rb.velocity = new Vector3(_moveSpeed*transform.right.x*Time.deltaTime*100f,rb.velocity.y);
     }
 
     public Vector2 GetDirection()
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
     
     void OnGroundCheck()
     {
-        isGrounded = Physics2D.OverlapCircle(transform.position, GroundRadius, GroundLayer);
+        isGrounded = Physics2D.OverlapCircle(transform.position, _groundRadius, GroundLayer);
     }
     
     public int GetLevel()
@@ -120,11 +120,11 @@ public class PlayerController : MonoBehaviour
     }
     private void SkillInputController()
     {
-        for(int i = 0; i < skills.Count; i++)
+        for(int i = 0; i < _skills.Count; i++)
         {
-            if (Input.GetKeyDown(skills[i].GetSkillKey()))
+            if (Input.GetKeyDown(_skills[i].GetSkillKey()))
             {
-                skills[i].SpawnBullet();
+                _skills[i].SpawnBullet();
             }
 
         }
