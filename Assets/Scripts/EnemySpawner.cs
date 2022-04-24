@@ -7,10 +7,17 @@ using Random = UnityEngine.Random;
 public class EnemySpawner : MonoBehaviour
 {
     //Getting Enemy Prefab and Spawn Position
-    [SerializeField] private GameObject EnemyPrefab;
-    [SerializeField] private GameObject SpawnTarget;
-    [SerializeField] private int EnemyQuantity = 0;
-    [SerializeField] private float range = 2;
+    [SerializeField] 
+    private GameObject EnemyPrefab;
+    
+    [SerializeField] 
+    private GameObject SpawnTarget;
+    
+    [SerializeField] 
+    private int EnemyQuantity = 0;
+    
+    [SerializeField] 
+    private float range = 2;
     
     private Vector3 SpawnPosition;
 
