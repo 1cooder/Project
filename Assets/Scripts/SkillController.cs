@@ -72,16 +72,16 @@ namespace Assets.Scripts
 
         public void SpawnBullet()
         {
-            if(_unlockLevel>CharacterController.Instance.GetLevel() && status != SkillStatus.Ready )
+            if(_unlockLevel>PlayerController.Instance.GetLevel() && status != SkillStatus.Ready )
             {
                 return;
             }
             else
             {
-                GameObject bulletObject=Instantiate(_skillObjectInstance,CharacterController.Instance.transform.position,CharacterController.Instance.transform.rotation);
+                GameObject bulletObject=Instantiate(_skillObjectInstance,PlayerController.Instance.transform.position,PlayerController.Instance.transform.rotation);
                 bulletObject.transform.GetComponent<SpriteRenderer>().sprite = _sprite;
                 status = SkillStatus.Fired;
-                Bullet bullet = new Bullet(bulletObject,bulletObject.transform.position,CharacterController.Instance.GetDirection());
+                Bullet bullet = new Bullet(bulletObject,bulletObject.transform.position,PlayerController.Instance.GetDirection());
 
                 spawnedBullets.Add(bullet);
             }

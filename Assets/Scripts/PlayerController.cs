@@ -2,23 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts;
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public static CharacterController Instance { get { return _instance; } }
-    private static CharacterController _instance;
+    public static PlayerController Instance { get { return _instance; } }
+    private static PlayerController _instance;
 
-    [SerializeField] float jumpSpeed = 3f;
-    [SerializeField] float moveSpeedDown = 5f;
-    [SerializeField] float moveSpeedUp = 3f;
-    [SerializeField] float moveSpeed;
-    [SerializeField] float GroundRadius = .5f;
+    [SerializeField] 
+    float jumpSpeed = 3f;
+    
+    [SerializeField] 
+    float moveSpeedDown = 5f;
+    
+    [SerializeField] 
+    float moveSpeedUp = 3f;
+    [SerializeField] 
+    float moveSpeed;
+    [SerializeField] 
+    float GroundRadius = .5f;
+    
     [SerializeField] List<SkillController> skillInstances;
     
     List<SkillController> skills = new List<SkillController>(); 
     
     Rigidbody2D rb;
     
-    [SerializeField] bool isGrounded = false;
+    [SerializeField] 
+    bool isGrounded = false;
 
     [SerializeField] LayerMask GroundLayer;
 
@@ -52,6 +61,7 @@ public class CharacterController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
         }
         SkillInputController();
+        TurnAround();
     }
 
 
@@ -68,26 +78,31 @@ public class CharacterController : MonoBehaviour
 
     }
 
+    private void TurnAround()
+    {
+        float direction = Input.GetAxis("Horizontal");
+        Vector3 pos = transform.position;
+        if (direction>0 && transform.localEulerAngles.y != 0f)
+        {
+            transform.localEulerAngles = new Vector3(0f,0f,0f);
+        }
+        if (direction < 0 && transform.localEulerAngles.y != -180f)
+        {
+            transform.localEulerAngles = new Vector3(0f, -180f, 0f);
+        }
+        transform.position = pos;
+    }
+
     void HorizontalMove()
-    {   
-        rb.velocity = new Vector3(moveSpeed*Input.GetAxis("Horizontal")*Time.deltaTime*100f,rb.velocity.y);
+    {
+        rb.velocity = new Vector3(moveSpeed*transform.right.x*Time.deltaTime*100f,rb.velocity.y);
     }
 
     public Vector2 GetDirection()
     {
-        if(rb.velocity.x>=0)
-            return transform.right;
-
-        return -transform.right;
+        return transform.right;
     }
 
-    //void FlipFace()
-    //{
-    //    facingRight = !facingRight;
-    //    Vector3 transLocate = transform.localScale;
-    //    transLocate.x *= -1;
-    //    transform.localScale = transLocate;
-    //}
     
     void OnGroundCheck()
     {

@@ -6,7 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //Getting scriptable object
-    [SerializeField] private EnemyType enemyType = null;
+    [SerializeField] 
+    private EnemyType enemyType = null;
 
     //Getting Enemy Values
     Sprite _sprite;
