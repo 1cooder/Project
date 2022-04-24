@@ -18,8 +18,8 @@ TagManager:
   - Bullet
   - Player
   - Enemy
-  - 
-  - 
+  - SafeLayer
+  - LevelLocker
   - 
   - 
   - 

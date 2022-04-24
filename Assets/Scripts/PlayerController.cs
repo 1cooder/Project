@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private float _groundRadius = .5f;
     [SerializeField]
     private float _enemyHitForce = 5f;
+    [SerializeField]
+    private float _delayAfterGotHit = 2f;
 
     [SerializeField]
     Transform _skillSpawnPosition;
@@ -33,9 +35,10 @@ public class PlayerController : MonoBehaviour
     bool _isGrounded = false;
 
     [SerializeField] 
-    LayerMask GroundLayer;
+    private LayerMask _groundLayer;
     [SerializeField] 
-    LayerMask EnemyLayer;
+    private LayerMask _enemyLayer;
+
 
     private int level = 1;
     private float _direction = 0f;
@@ -76,7 +79,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         OnGroundCheck();
 
         if (_isGrounded)
@@ -120,7 +122,7 @@ public class PlayerController : MonoBehaviour
     
     void OnGroundCheck()
     {
-        _isGrounded = Physics2D.OverlapCircle(transform.position, _groundRadius, GroundLayer);
+        _isGrounded = Physics2D.OverlapCircle(transform.position, _groundRadius, _groundLayer);
     }
     
     public int GetLevel()
@@ -152,9 +154,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.layer & 1 << EnemyLayer) !=0)
+        if ((_enemyLayer & (1 << collision.gameObject.layer)) !=0)
         {
             rb.AddForce(-transform.right*_enemyHitForce);
+            StartCoroutine(BackToNormal());
         }
     }
+    IEnumerator BackToNormal()
+    {
+        gameObject.layer = LayerMask.NameToLayer("SafeLayer");
+        yield return new WaitForSeconds(_delayAfterGotHit);
+        gameObject.layer = LayerMask.NameToLayer("Player");
+    }
+
+    public enum PlayerStatus
+    {
+        Idle,
+        GotHit,
+    }
+
 }
