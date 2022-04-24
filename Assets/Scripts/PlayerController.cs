@@ -81,16 +81,16 @@ public class PlayerController : MonoBehaviour
     private void TurnAround()
     {
         float direction = Input.GetAxis("Horizontal");
-        Vector3 pos = transform.position;
         if (direction>0 && transform.localEulerAngles.y != 0f)
         {
             transform.localEulerAngles = new Vector3(0f,0f,0f);
+            Debug.Log("check1");
         }
-        if (direction < 0 && transform.localEulerAngles.y != -180f)
+        if (direction < 0 && transform.localEulerAngles.y == 0f)
         {
             transform.localEulerAngles = new Vector3(0f, -180f, 0f);
+            Debug.Log("check2");
         }
-        transform.position = pos;
     }
 
     void HorizontalMove()
