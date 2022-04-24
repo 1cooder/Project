@@ -657,14 +657,18 @@ MonoBehaviour:
   _moveSpeedUp: 3
   _moveSpeed: 0
   _groundRadius: 2
+  _enemyHitForce: 1000
   _skillSpawnPosition: {fileID: 8595877017583497275}
   _skillInstances:
   - {fileID: 1322958050854667825, guid: c3463b2f3e09ec34ba2f5f074eca692f, type: 3}
   - {fileID: 2377035149556900412, guid: 33788dfd0e550d44b8b48669a7c59f21, type: 3}
-  isGrounded: 0
+  _isGrounded: 0
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!95 &4014715188207934603
 Animator:
   serializedVersion: 3

@@ -9,16 +9,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] 
     private float jumpSpeed = 3f;
-    
     [SerializeField] 
     float _moveSpeedDown = 5f;
-    
     [SerializeField] 
     private float _moveSpeedUp = 3f;
     [SerializeField] 
     private float _moveSpeed;
     [SerializeField] 
     private float _groundRadius = .5f;
+    [SerializeField]
+    private float _enemyHitForce = 5f;
 
     [SerializeField]
     Transform _skillSpawnPosition;
@@ -30,9 +30,12 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     
     [SerializeField] 
-    bool isGrounded = false;
+    bool _isGrounded = false;
 
-    [SerializeField] LayerMask GroundLayer;
+    [SerializeField] 
+    LayerMask GroundLayer;
+    [SerializeField] 
+    LayerMask EnemyLayer;
 
     private int level = 1;
     private float _direction = 0f;
@@ -60,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
         }
@@ -76,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         OnGroundCheck();
 
-        if (isGrounded)
+        if (_isGrounded)
             _moveSpeed = _moveSpeedDown;
         else
             _moveSpeed = _moveSpeedUp;
@@ -117,7 +120,7 @@ public class PlayerController : MonoBehaviour
     
     void OnGroundCheck()
     {
-        isGrounded = Physics2D.OverlapCircle(transform.position, _groundRadius, GroundLayer);
+        _isGrounded = Physics2D.OverlapCircle(transform.position, _groundRadius, GroundLayer);
     }
     
     public int GetLevel()
@@ -144,6 +147,14 @@ public class PlayerController : MonoBehaviour
                 _skills[i].SpawnBullet();
             }
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if ((collision.gameObject.layer & 1 << EnemyLayer) !=0)
+        {
+            rb.AddForce(-transform.right*_enemyHitForce);
         }
     }
 }
