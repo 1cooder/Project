@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Assets.Scripts;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance { get { return _instance; } }
     private static PlayerController _instance;
+    public HealthBarBehaviour _healthBar;
+
 
     [SerializeField] 
     private float jumpSpeed = 3f;
@@ -21,6 +24,12 @@ public class PlayerController : MonoBehaviour
     private float _enemyHitForce = 5f;
     [SerializeField]
     private float _delayAfterGotHit = 2f;
+
+    [SerializeField]
+    private float _maxHealth = 100f;
+
+    [SerializeField]
+    private float _currentHealth;
 
     [SerializeField]
     Transform _skillSpawnPosition;
@@ -45,6 +54,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        _currentHealth = _maxHealth;
+        Debug.Log(_currentHealth);
+        _healthBar.SetHealthBar(_currentHealth, _maxHealth);
+
+
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -61,8 +75,9 @@ public class PlayerController : MonoBehaviour
         for(int i = 0; i < _skillInstances.Count; i++)
         {
             _skills.Add(Instantiate(_skillInstances[i], transform));
-        }
+        }   
     }
+
 
     private void Update()
     {
@@ -171,6 +186,13 @@ public class PlayerController : MonoBehaviour
     {
         Idle,
         GotHit,
+    }
+
+    public void TakeHit(float hit)
+    {
+        _currentHealth -= hit;
+
+        _healthBar.SetHealthBar(_currentHealth, _maxHealth);
     }
 
 }

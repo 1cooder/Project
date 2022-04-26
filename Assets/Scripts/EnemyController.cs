@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] 
     private EnemyData _enemyType = null;
 
+    public HealthBarBehaviour HealthBar;
+
     //Getting Enemy Values
     Sprite _sprite;
     Sprite[] _damagedSprite;
@@ -31,18 +33,25 @@ public class EnemyController : MonoBehaviour
         InitEnemyFromScriptableObject();
         _health = _maxHealth;
         Debug.Log(_health);
+        HealthBar.SetHealthBar(_health, _maxHealth);
+
         _startPosition = transform.position;
     }
 
     private void Start()
     {
+
         GetComponent<SpriteRenderer>().sprite = _sprite;
         transform.localScale = _enemyScale;
+
+        
     }
 
     private void Update()
     {
         Move();
+
+
     }
 
     //Getting Enemy values from scriptable object
@@ -71,6 +80,8 @@ public class EnemyController : MonoBehaviour
         DestroyEnemy();
         Debug.Log(_health);
         Debug.Log(GetComponent<SpriteRenderer>().sprite);
+
+        HealthBar.SetHealthBar(_health, _maxHealth);
 
     }
 
