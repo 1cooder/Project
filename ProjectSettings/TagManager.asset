@@ -41,14 +41,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BackgroundA
-    uniqueID: 655354991
+  - name: BackgroundC
+    uniqueID: 1754035335
     locked: 0
   - name: BackgroundB
     uniqueID: 1032457563
     locked: 0
-  - name: BackgroundC
-    uniqueID: 1754035335
+  - name: BackgroundA
+    uniqueID: 655354991
     locked: 0
   - name: Default
     uniqueID: 0
