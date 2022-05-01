@@ -218,7 +218,7 @@ MonoBehaviour:
   Generations: 4
   Duration: 0.112
   ChaosFactor: 0.15
-  ManualMode: 0
+  ManualMode: 1
   Rows: 8
   Columns: 1
   AnimationMode: 1

@@ -157,7 +157,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.08
+        time: 0.04
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -169,7 +169,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Root/Body-UP/L-Up-ARM/L-Down-ARM/L-Hand/Staff/SimpleLightningBoltAnimatedPrefab
+    path: Root/Body-UP/L-Up-ARM/L-Down-ARM/L-Hand/Staff/SimpleLightningBoltPrefab
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -202,7 +202,7 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2012314273
+      path: 1473703660
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -667,7 +667,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.08
+        time: 0.04
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -679,7 +679,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Root/Body-UP/L-Up-ARM/L-Down-ARM/L-Hand/Staff/SimpleLightningBoltAnimatedPrefab
+    path: Root/Body-UP/L-Up-ARM/L-Down-ARM/L-Hand/Staff/SimpleLightningBoltPrefab
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves:
