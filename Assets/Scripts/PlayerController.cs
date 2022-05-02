@@ -98,7 +98,31 @@ public class PlayerController : MonoBehaviour
         _direction = Input.GetAxisRaw("Horizontal");
 
         TurnAround();
+		Attack();
     }
+
+    private void Attack()
+    {
+
+	 if (Input.GetKeyDown(KeyCode.E))
+        {
+			if (_direction != 0f)
+			{
+				
+			}
+			else	
+			{
+				
+				m_Animator.SetTrigger("toMagicFire");
+				
+			}
+							
+        }
+
+        
+    }
+
+
 
 
     private void FixedUpdate()
@@ -130,17 +154,20 @@ public class PlayerController : MonoBehaviour
     {
         if (_direction != 0f)
         {
-            rb.velocity = new Vector2(_moveSpeed * transform.right.x * Time.deltaTime * 100f, rb.velocity.y);
-			 
-			 m_Animator.ResetTrigger("toWalk");
+             //m_Animator.ResetTrigger("toWalk");
 			 m_Animator.SetTrigger("toWalk");
+			 
+			rb.velocity = new Vector2(_moveSpeed * transform.right.x * Time.deltaTime * 100f, rb.velocity.y);
+			 
+			
         }
         else
         {
-            rb.velocity = new Vector2(0f,rb.velocity.y);
-			
-			 m_Animator.ResetTrigger("toIDLE");
+             //m_Animator.ResetTrigger("toIDLE");
 			 m_Animator.SetTrigger("toIDLE");
+			rb.velocity = new Vector2(0f,rb.velocity.y);
+			
+			
         }
     }
 

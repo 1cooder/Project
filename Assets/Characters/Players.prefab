@@ -686,11 +686,11 @@ MonoBehaviour:
   EndObject: {fileID: 6764950051307340482}
   EndPosition: {x: 0, y: 0, z: 0}
   Generations: 6
-  Duration: 0.03
-  ChaosFactor: 0.15
+  Duration: 0.05
+  ChaosFactor: 0.308
   ManualMode: 0
-  Rows: 1
-  Columns: 1
+  Rows: 12
+  Columns: 24
   AnimationMode: 1
 --- !u!1 &4512644500617913023
 GameObject:
@@ -849,8 +849,8 @@ MonoBehaviour:
   - {fileID: 7028538178065616619}
   - {fileID: 5187063630809189654}
   m_Bounds:
-    m_Center: {x: 1.0222052, y: 0.71860075, z: -0.030000005}
-    m_Extent: {x: 2.775727, y: 4.071962, z: 0.060000006}
+    m_Center: {x: 0.86097693, y: 0.5166228, z: -0.030000005}
+    m_Extent: {x: 2.635888, y: 4.0422564, z: 0.060000006}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!61 &1265646594312528772
@@ -1009,7 +1009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6764950051307340482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.99, y: 1.64, z: 0}
+  m_LocalPosition: {x: 4.99, y: 4, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 5137145534203976924}
