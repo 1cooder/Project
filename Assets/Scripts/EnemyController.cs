@@ -118,7 +118,7 @@ public class EnemyController : MonoBehaviour
         Vector3 nextPosition = transform.position +_speed * Time.deltaTime * transform.right;
         if (Vector3.Distance(_startPosition, nextPosition) >_moveRadius)
         {
-            transform.Rotate(Vector3.up,180f);
+            //transform.Rotate(Vector3.up,180f);
         }
         else
         {
