@@ -73,14 +73,14 @@ public class EnemyController : MonoBehaviour
 				
 				  transform.Translate (Vector2.right * MoveSpeed * Time.deltaTime);
 				   
-				   m_Animator.ResetTrigger("toIdle");
+				   //m_Animator.ResetTrigger("toIdle");
 				   m_Animator.SetTrigger("toIdle");
 				
 				
 				 if (Vector2.Distance(transform.position, target.position) <= MaxDist)
 					{
 						  
-						  m_Animator.ResetTrigger("toAttack");
+						  //m_Animator.ResetTrigger("toAttack");
 						  m_Animator.SetTrigger("toAttack");
 						 
 					}
@@ -128,8 +128,11 @@ public class EnemyController : MonoBehaviour
 
         if(_health <= 0)
         {
-            Destroy(this.gameObject);
-            Debug.Log("enemy died");
+            //Destroy(this.gameObject);
+            //Debug.Log("enemy died");
+			
+			m_Animator.SetTrigger("toDIE");
+			
         }
     }
 

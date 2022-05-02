@@ -29,7 +29,7 @@ public class HealthBarBehaviour : MonoBehaviour
         {
             if(_charTypeID == CharType.Enemy)
             {
-                Slider.gameObject.SetActive(health < maxHealth); //In non damage, bar will be passive
+                //Slider.gameObject.SetActive(health < maxHealth); //In non damage, bar will be passive
             }
 
             Slider.maxValue = maxHealth;
@@ -58,7 +58,7 @@ public class HealthBarBehaviour : MonoBehaviour
             case CharType.Player:
                 break;
             case CharType.Enemy:
-                Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
+                //Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
                 break;
             case CharType.Boss:
                 break;

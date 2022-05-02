@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts;
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance { get { return _instance; } }
@@ -235,6 +236,38 @@ public class PlayerController : MonoBehaviour
         _currentHealth -= hit;
 
         _healthBar.SetHealthBar(_currentHealth, _maxHealth);
+		
+		        if(_currentHealth <= 0)
+        {
+			
+			m_Animator.SetTrigger("toDie");
+			
+			
+			StartCoroutine(waiter());
+			
+			 
+			
+			
+			IEnumerator waiter()
+			{
+				
+			yield return new WaitForSeconds(5);
+			SceneManager.LoadScene("Menu-YouLose", LoadSceneMode.Single);
+ 
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+        }
+		
+		
     }
 
 }
