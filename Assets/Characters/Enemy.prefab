@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &375849721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -692,7 +692,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6883341228047340435}
-  m_LocalRotation: {x: -0.7144299, y: -0.699707, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7144299, w: 0.699707}
   m_LocalPosition: {x: -0.051560976, y: -1.1429336, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -701,7 +701,7 @@ Transform:
   - {fileID: 375849721}
   m_Father: {fileID: 8463544117780678221}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 91.193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 91.193}
 --- !u!1 &7126558304213794650
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,8 +817,8 @@ MonoBehaviour:
   - {fileID: 50352808128987448}
   - {fileID: 7030753048183557354}
   m_Bounds:
-    m_Center: {x: 0.05044341, y: 0.8049107, z: 0}
-    m_Extent: {x: 1.585465, y: 1.6120925, z: 0}
+    m_Center: {x: -0.15356588, y: 0.80491096, z: 0}
+    m_Extent: {x: 1.5854626, y: 1.6120927, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!61 &7906595350621711699
@@ -882,6 +882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: {fileID: 11400000, guid: a76930788ef4c7941b451018fd57775f, type: 2}
   HealthBar: {fileID: 375849725}
+  Player: {fileID: 0}
 --- !u!95 &4318345852353001395
 Animator:
   serializedVersion: 3

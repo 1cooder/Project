@@ -26,6 +26,12 @@ public class EnemyController : MonoBehaviour
     private float _moveRadius;
 
     string _enemyName;
+    
+	public Transform target;
+	int MoveSpeed = 4;
+    int MaxDist = 6;
+    int MinDist = 4;
+	Animator m_Animator;
 
 
     private void Awake()
@@ -33,7 +39,7 @@ public class EnemyController : MonoBehaviour
         InitEnemyFromScriptableObject();
         _health = _maxHealth;
         Debug.Log(_health);
-        HealthBar.SetHealthBar(_health, _maxHealth);
+       HealthBar.SetHealthBar(_health, _maxHealth);
 
         _startPosition = transform.position;
     }
@@ -43,16 +49,47 @@ public class EnemyController : MonoBehaviour
 
         GetComponent<SpriteRenderer>().sprite = _sprite;
         transform.localScale = _enemyScale;
+		m_Animator = gameObject.GetComponent<Animator>();
 
         
     }
 
     private void Update()
     {
-        Move();
+        //Move();
+		Attack();
 
 
     }
+	
+	    //Enemy attack
+    public void Attack()
+    {
+		
+		//transform.LookAt(target);
+			
+		if (Vector2.Distance(transform.position, target.position) >= MinDist)
+			{
+				
+				  transform.Translate (Vector2.right * MoveSpeed * Time.deltaTime);
+				   
+				   m_Animator.ResetTrigger("toIdle");
+				   m_Animator.SetTrigger("toIdle");
+				
+				
+				 if (Vector2.Distance(transform.position, target.position) <= MaxDist)
+					{
+						  
+						  m_Animator.ResetTrigger("toAttack");
+						  m_Animator.SetTrigger("toAttack");
+						 
+					}
+
+			}
+
+    }
+	
+	
 
     //Getting Enemy values from scriptable object
     public void InitEnemyFromScriptableObject()
@@ -118,7 +155,7 @@ public class EnemyController : MonoBehaviour
         Vector3 nextPosition = transform.position +_speed * Time.deltaTime * transform.right;
         if (Vector3.Distance(_startPosition, nextPosition) >_moveRadius)
         {
-            //transform.Rotate(Vector3.up,180f);
+            transform.Rotate(Vector3.up,180f);
         }
         else
         {
