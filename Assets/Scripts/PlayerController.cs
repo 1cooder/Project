@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
     private int level = 1;
     private float _direction = 0f;
+	
+	Animator m_Animator;
 
     private void Awake()
     {
@@ -78,6 +80,13 @@ public class PlayerController : MonoBehaviour
         }   
     }
 
+    private void Start()
+    {
+
+		m_Animator = gameObject.GetComponent<Animator>();
+
+        
+    }
 
     private void Update()
     {
@@ -122,10 +131,16 @@ public class PlayerController : MonoBehaviour
         if (_direction != 0f)
         {
             rb.velocity = new Vector2(_moveSpeed * transform.right.x * Time.deltaTime * 100f, rb.velocity.y);
+			 
+			 m_Animator.ResetTrigger("toWalk");
+			 m_Animator.SetTrigger("toWalk");
         }
         else
         {
             rb.velocity = new Vector2(0f,rb.velocity.y);
+			
+			 m_Animator.ResetTrigger("toIDLE");
+			 m_Animator.SetTrigger("toIDLE");
         }
     }
 
