@@ -243,8 +243,8 @@ MonoBehaviour:
   - {fileID: 5905485155721739168}
   - {fileID: 8025367993654257259}
   m_Bounds:
-    m_Center: {x: 1.5766616, y: -0.017091274, z: 0}
-    m_Extent: {x: 4.5543203, y: 4.9899826, z: 0}
+    m_Center: {x: 1.576673, y: -0.017091274, z: 0}
+    m_Extent: {x: 4.554309, y: 4.9899826, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!61 &4981177231086977677
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 571386342135275639}
   - component: {fileID: 2449965173310204347}
   m_Layer: 5
-  m_Name: CanvasHEALT
+  m_Name: CanvasHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -287,8 +287,8 @@ MonoBehaviour:
   - {fileID: 7379656894140938256}
   - {fileID: 9093148791243105794}
   m_Bounds:
-    m_Center: {x: 0.95484424, y: 0.3452263, z: 0}
-    m_Extent: {x: 2.9448876, y: 4.552227, z: 0}
+    m_Center: {x: 0.9548328, y: 0.3452263, z: 0}
+    m_Extent: {x: 2.9448993, y: 4.552227, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!61 &4981177231086977677
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478437258723236165}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7205e0be7d44a9a4fb4df529c3d695c4, type: 3}
   m_Name: 
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 2734216947019539840}
   - component: {fileID: 2847348757562035148}
   m_Layer: 5
-  m_Name: CanvasHEALT
+  m_Name: CanvasHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
