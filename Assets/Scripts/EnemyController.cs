@@ -29,9 +29,11 @@ public class EnemyController : MonoBehaviour
     
 	public Transform target;
 	int MoveSpeed = 4;
-    int MaxDist = 6;
+    int MaxDist = 7;
     int MinDist = 4;
 	Animator m_Animator;
+	private bool inRange;
+	
 
 
     private void Awake()
@@ -57,37 +59,76 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         //Move();
+		
 		Attack();
-
 
     }
 	
-	    //Enemy attack
-    public void Attack()
+	   
+    public void Attack()  //Enemy attack
     {
 		
-		//transform.LookAt(target);
-			
-		if (Vector2.Distance(transform.position, target.position) >= MinDist)
+        if (inRange)
+		{
+     
+	 		if (Vector2.Distance(transform.position, target.position) >= MinDist)
 			{
 				
-				  transform.Translate (Vector2.right * MoveSpeed * Time.deltaTime);
-				   
-				   //m_Animator.ResetTrigger("toIdle");
-				   m_Animator.SetTrigger("toIdle");
+				   //transform.Translate (Vector2.right * MoveSpeed * Time.deltaTime);
+		    Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
+
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, MoveSpeed * Time.deltaTime);
+			   
+				          m_Animator.SetTrigger("toIdle");
 				
 				
 				 if (Vector2.Distance(transform.position, target.position) <= MaxDist)
 					{
-						  
-						  //m_Animator.ResetTrigger("toAttack");
+						 
 						  m_Animator.SetTrigger("toAttack");
 						 
 					}
 
 			}
+		//Enemy face flip
+        Vector3 rotation = transform.eulerAngles;
+        if (transform.position.x > target.position.x) 
+        {
+            rotation.y = 180;
+        }
+        else
+        {
+            Debug.Log("Twist");
+            rotation.y = 0;
+        }
 
-    }
+        transform.eulerAngles = rotation;		
+		
+		
+		
+		
+		
+		
+		
+		}
+ } 	 		
+	
+  public  void OnTriggerEnter2D(Collider2D trig)
+  {
+	       //Debug.Log("Player collided trigger1");
+	   if (trig.gameObject.tag == "Player")
+	   {
+	    
+		inRange = true;
+	   }
+	   
+  } 
+
+ 		
+
+ 	
+
+ 
 	
 	
 

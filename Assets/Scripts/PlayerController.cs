@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
         {
              //m_Animator.ResetTrigger("toIDLE");
 			 m_Animator.SetTrigger("toIDLE");
-			rb.velocity = new Vector2(0f,rb.velocity.y);
+			 rb.velocity = new Vector2(0f,rb.velocity.y);
 			
 			
         }
@@ -257,17 +257,12 @@ public class PlayerController : MonoBehaviour
 			}
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
         }
 		
 		
     }
+	
+
+
 
 }

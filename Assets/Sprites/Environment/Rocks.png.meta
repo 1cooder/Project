@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 2007986136508003152
     second: Rocks_B
+  - first:
+      213: -5091828049805951605
+    second: RockX
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,7 +108,7 @@ TextureImporter:
         width: 845
         height: 805
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,11 +125,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 962
-        y: 44
+        y: 46
         width: 635
         height: 509
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,6 +137,27 @@ TextureImporter:
       bones: []
       spriteID: 053f77c90cccddb10800000000000000
       internalID: 2007986136508003152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockX
+      rect:
+        serializedVersion: 2
+        x: 2162
+        y: 81
+        width: 452
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d32f9cd513659b0800000000000000
+      internalID: -5091828049805951605
       vertices: []
       indices: 
       edges: []
