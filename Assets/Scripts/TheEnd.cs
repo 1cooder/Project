@@ -7,10 +7,11 @@ public class TheEnd : MonoBehaviour
 {
 
 
-  void OnTriggerEnter2D(Collider2D other)
+  void OnTriggerEnter2D(Collider2D trig)
   {
-   
-	SceneManager.LoadScene("Menu-YouWin", LoadSceneMode.Single);
-	
+   	   if (trig.gameObject.tag == "Player")
+	   {
+		SceneManager.LoadScene("Menu-YouWin", LoadSceneMode.Single);
+		}
   }
 }

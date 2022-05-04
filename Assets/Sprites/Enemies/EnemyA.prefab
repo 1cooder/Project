@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4603437081474296556}
   - component: {fileID: 4603437081474296557}
   - component: {fileID: 4603437081474296554}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: CanvasHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 4603437081886285199}
   - component: {fileID: 4603437081886285197}
   - component: {fileID: 4603437081886285198}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4603437082273764075}
   - component: {fileID: 4603437082273764074}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4603437082421381177}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 4603437082424194664}
   - component: {fileID: 4603437082424194710}
   - component: {fileID: 4603437082424194711}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 6052182351579158714}
   m_Layer: 9
   m_Name: EnemyA
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,8 +727,8 @@ MonoBehaviour:
   - {fileID: 4562236849249921327}
   - {fileID: 6805204050149909757}
   m_Bounds:
-    m_Center: {x: -0.16168928, y: 2.821331, z: 0}
-    m_Extent: {x: 1.6278168, y: 1.5708923, z: 0}
+    m_Center: {x: -0.10200679, y: 1.9478447, z: 0}
+    m_Extent: {x: 1.5854629, y: 1.6120926, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!50 &6692580558759441767
@@ -743,13 +743,13 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
-  m_LinearDrag: 0
+  m_Mass: 1
+  m_LinearDrag: 99
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.36
   m_Material: {fileID: 6200000, guid: b5e9450edeebe9d43bcf40a96dc96453, type: 2}
   m_Interpolate: 1
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &5934459212746327364
@@ -942,7 +942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4143363640595479327}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyA
   m_TagString: Enemy
   m_Icon: {fileID: 0}
