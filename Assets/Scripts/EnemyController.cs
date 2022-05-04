@@ -98,7 +98,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Twist");
+            //Debug.Log("Twist");
             rotation.y = 0;
         }
 
@@ -115,7 +115,7 @@ public class EnemyController : MonoBehaviour
 	
   public  void OnTriggerEnter2D(Collider2D trig)
   {
-	       //Debug.Log("Player collided trigger1");
+	       
 	   if (trig.gameObject.tag == "Player")
 	   {
 	    
@@ -170,7 +170,7 @@ public class EnemyController : MonoBehaviour
         if(_health <= 0)
         {
             //Destroy(this.gameObject);
-            //Debug.Log("enemy died");
+            
 			
 			m_Animator.SetTrigger("toDIE");
 			
