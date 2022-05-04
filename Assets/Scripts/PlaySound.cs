@@ -8,16 +8,28 @@ public class PlaySound : MonoBehaviour
  AudioSource audioSource;
  AudioSource  MusicTrack;
  
+    private void Start()
+    {
+
+        MusicTrack  = GameObject.FindWithTag("MusicTrack").GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+
+        
+    }
+
+
+
 
     void OnTriggerEnter2D(Collider2D trig)
     {
-        MusicTrack  = GameObject.FindWithTag("MusicTrack").GetComponent<AudioSource>();
-        audioSource = GetComponent<AudioSource>();
+
 
         if (trig.gameObject.tag == "Player" && !audioSource.isPlaying)
         {
             
-            MusicTrack.mute = true;
+            //MusicTrack.mute = true;
+
+            MusicTrack.volume = 0;
             audioSource.Play();
         
         }
@@ -26,7 +38,9 @@ public class PlaySound : MonoBehaviour
     void OnTriggerExit2D(Collider2D trig)
     {
         audioSource.Stop();
-        MusicTrack.mute = false;
+        //MusicTrack.mute = false;
+  
+         MusicTrack.volume = 1;
     }
 
 
