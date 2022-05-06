@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb02b9f048462f46b2c04b1642a1e04, type: 3}
   m_Name: ExBoss
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 21300000, guid: 86d70cadb30924145b76fa36db630e48, type: 3}
-  damagedEnemySprites:
-  - {fileID: 21300000, guid: b7507ed6db78fd84fb199f1b48349fad, type: 3}
-  - {fileID: 21300000, guid: e39bf777648895743b40f77460592dcb, type: 3}
-  enemyScale: {x: 1, y: 1}
-  enemyMaxHealt: 150
-  enemySpeed: 5
-  enemyDamage: 30
-  enemyName: Example Boss
+  EnemySprite: {fileID: 21300000, guid: 89ffef08fcd649a42b5ab4e290ff618b, type: 3}
+  DamagedEnemySprites: []
+  EnemyScale: {x: 1, y: 1}
+  EnemyMaxHealth: 100
+  EnemySpeed: 5
+  EnemyDamage: 10
+  EnemyMoveRadius: 10
+  EnemyName: Enemy Name

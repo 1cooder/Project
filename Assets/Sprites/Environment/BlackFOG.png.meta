@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: b09bc030f188d4544825114766c7aaa4
+guid: 1d0adc2f583fabe49b10bcc72d837df7
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 1887494081247492234
-    second: Rocks_A
-  - first:
-      213: 2007986136508003152
-    second: Rocks_B
-  - first:
-      213: -5091828049805951605
-    second: RockX
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,13 +35,13 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 0
   spriteMeshType: 0
   alignment: 0
@@ -98,70 +89,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Rocks_A
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 5
-        width: 845
-        height: 805
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a88b864ddd9b13a10800000000000000
-      internalID: 1887494081247492234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rocks_B
-      rect:
-        serializedVersion: 2
-        x: 962
-        y: 46
-        width: 635
-        height: 509
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 053f77c90cccddb10800000000000000
-      internalID: 2007986136508003152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RockX
-      rect:
-        serializedVersion: 2
-        x: 2162
-        y: 81
-        width: 452
-        height: 444
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8d32f9cd513659b0800000000000000
-      internalID: -5091828049805951605
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
