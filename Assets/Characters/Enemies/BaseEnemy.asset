@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb02b9f048462f46b2c04b1642a1e04, type: 3}
   m_Name: BaseEnemy
   m_EditorClassIdentifier: 
-  EnemySprite: {fileID: 21300000, guid: 775a199fa7226744981bd1291f2dc85d, type: 3}
-  DamagedEnemySprites: []
-  EnemyScale: {x: 1, y: 1}
-  EnemyMaxHealth: 100
-  EnemySpeed: 5
-  EnemyDamage: 10
-  EnemyMoveRadius: 10
-  EnemyName: Enemy Name
+  _enemySprite: {fileID: 21300000, guid: 775a199fa7226744981bd1291f2dc85d, type: 3}
+  _damagedSprites: []
+  _enemyScale: {x: 1, y: 1}
+  _maxHealth: 100
+  _speed: 5
+  _damage: 10
+  _patrollingRadius: 10
+  _chaseRadius: 20
+  _Name: Enemy Name

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +22,12 @@ public class HealthBarBehaviour : MonoBehaviour
     public Color HighColor;
     public Vector3 Offset;
 
+
+    private void Start()
+    {
+        SetHealthBarTransform();
+    }
+
     public void SetHealthBar(float health, float maxHealth)
     {
         if (_charTypeID != CharType.None)
@@ -34,23 +39,13 @@ public class HealthBarBehaviour : MonoBehaviour
 
             Slider.maxValue = maxHealth;
             Slider.value = health;
-            Debug.Log("1" + ""+ health);
 
             //color normalized
             // Slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(LowColor, HighColor, Slider.normalizedValue);
             Slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Color.red, Color.green, Slider.normalizedValue);
         }
-
-        
     }
     
-
-    void Update()
-    {
-        SetHealthBarTransform();
-        
-    }
-
     public void SetHealthBarTransform()
     {
         switch (_charTypeID)

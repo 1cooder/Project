@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts;
+using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
@@ -25,10 +26,8 @@ public class PlayerController : MonoBehaviour
     private float _enemyHitForce = 5f;
     [SerializeField]
     private float _delayAfterGotHit = 2f;
-
     [SerializeField]
     private float _maxHealth = 100f;
-
     [SerializeField]
     private float _currentHealth;
 
@@ -58,10 +57,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _currentHealth = _maxHealth;
-        Debug.Log(_currentHealth);
         _healthBar.SetHealthBar(_currentHealth, _maxHealth);
-
-
+        
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -83,10 +80,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-
-		m_Animator = gameObject.GetComponent<Animator>();
-
-        
+	    m_Animator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -104,23 +98,16 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-
-	 if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
 			if (_direction != 0f)
 			{
-				
-			}
+            }
 			else	
 			{
-				
 				m_Animator.SetTrigger("toMagicFire");
-				
 			}
-							
         }
-
-        
     }
 
 
@@ -155,20 +142,13 @@ public class PlayerController : MonoBehaviour
     {
         if (_direction != 0f)
         {
-             //m_Animator.ResetTrigger("toWalk");
-			 m_Animator.SetTrigger("toWalk");
-			 
-			rb.velocity = new Vector2(_moveSpeed * transform.right.x * Time.deltaTime * 100f, rb.velocity.y);
-			 
-			
+			m_Animator.SetTrigger("toWalk");
+            rb.velocity = new Vector2(_moveSpeed * transform.right.x * Time.deltaTime * 100f, rb.velocity.y);
         }
         else
         {
-             //m_Animator.ResetTrigger("toIDLE");
-			 m_Animator.SetTrigger("toIDLE");
+            m_Animator.SetTrigger("toIDLE");
 			rb.velocity = new Vector2(0f,rb.velocity.y);
-			
-			
         }
     }
 
@@ -206,7 +186,6 @@ public class PlayerController : MonoBehaviour
             {
                 _skills[i].SpawnBullet();
             }
-
         }
     }
 
@@ -231,43 +210,21 @@ public class PlayerController : MonoBehaviour
         GotHit,
     }
 
-    public void TakeHit(float hit)
+    public async  UniTaskVoid TakeHit(float hit)
     {
         _currentHealth -= hit;
 
         _healthBar.SetHealthBar(_currentHealth, _maxHealth);
 		
-		        if(_currentHealth <= 0)
+		if(_currentHealth <= 0)
         {
-			
-			m_Animator.SetTrigger("toDie");
-			
-			
-			StartCoroutine(waiter());
-			
-			 
-			
-			
-			IEnumerator waiter()
-			{
-				
-			yield return new WaitForSeconds(5);
-			SceneManager.LoadScene("Menu-YouLose", LoadSceneMode.Single);
- 
-			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+        
+            m_Animator.SetTrigger("toDie");
+
+            await UniTask.Delay(5000);
+
+            SceneManager.LoadScene("Menu-YouLose", LoadSceneMode.Single);  // This must be turn to ui not scene.
         }
-		
-		
     }
 
 }
